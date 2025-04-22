@@ -22,6 +22,7 @@
 
 
 ## News
+- [2025-04-22] The code is scheduled to be released between May 16th and May 31st
 - [2025-01-23] Our paper has been accepted by ICLR 2025!
 
 ## Setup
