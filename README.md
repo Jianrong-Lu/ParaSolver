@@ -1,7 +1,6 @@
 
-<br />
 <p align="center">
-  <h1 align="center">ParaSolver: A Hierarchical Parallel Integral Solver for Diffusion Models </h1>
+  <h1 align="center">ParaSolver: A Hierarchical Parallel Integral Solver for Diffusion Models</h1>
 
   <p align="center">
     <br />
@@ -10,19 +9,11 @@
     <a href="https://scholar.google.com/citations?user=d1L0KkoAAAAJ&hl=en"><strong>Zhiyu Zhu*</strong></a>
     ·
     <a href="https://sites.google.com/site/junhuihoushomepage/"><strong>Junhui Hou</strong></a>
-    ·
   </p>
 </p>
 
-<br />
-
 [![Paper](https://img.shields.io/badge/Paper-ICLR%202025-blue)](https://openreview.net/forum?id=your-paper-id)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-
-
-
-
-
 
 ## 📢 News
 
@@ -30,10 +21,6 @@
 - **2025-06-06** ⚙️ 🛠️ We are organizing the code
 - **2025-04-22** ⌛ 📅 The code is scheduled to be released between May 16 and June 20  
 - **2025-01-23** 📜 🎓 Our paper has been accepted by ICLR 2025!
-
-
-
-
 
 Official implementation of "ParaSolver: A Hierarchical Parallel Integral Solver for Diffusion Models" (ICLR 2025)
 
@@ -121,29 +108,29 @@ output = pipe.parasolver_forward(
 # Save the image
 image = output.images[0]
 image.save("generated_image.png")
+```
 
 #### Multiple GPUs
 For multi-GPU usage, please run [`Expr_CMP_SD.py`](Expr_CMP_SD.py) in the repository with appropriate configuration.
 
-```
 ## ⚡ Performance Benchmarks
 
 ### Stable Diffusion v2 Acceleration
 [Stable Diffusion Results](results/sd2_comparison.png)
 Todo
+
 ### LSUN Church Acceleration
 [LSUN Church Results](results/lsun_comparison.png)
 Todo
+
 ## 🎨 Visual Results
 Todo
 
-```
 ## 🛠 Advanced Usage
 
-### Integration with Popular Frameworks  [Diffusers](https://huggingface.co/docs/diffusers/index)
+### Integration with Popular Frameworks [Diffusers](https://huggingface.co/docs/diffusers/index)
 Todo
 
-```
 ## 📝 Citation
 If you use ParaSolver in your research, please cite our paper:
 ```bibtex
@@ -156,10 +143,7 @@ If you use ParaSolver in your research, please cite our paper:
 ```
 
 ## 🤝 Contributing
-We welcome contributions! 
-
-
-
+We welcome contributions!
 
 ## 🙏 Acknowledgement
 
@@ -172,3 +156,4 @@ We extend our gratitude to these wonderful projects and resources that made our 
 - 📚 [Our University/Institution] - For computational resources and support
 
 *Special thanks to all contributors and open-source maintainers in the community!*
+
