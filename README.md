@@ -100,8 +100,8 @@ pipe.enable_xformers_memory_efficient_attention()
 pipe.unet.eval()
 
 # Generate an image
-prompt = "A highly detailed portrait of an elderly man with wrinkles, \
-wearing a traditional woolen hat, cinematic lighting, 8K, ultra-realistic, \
+prompt = "A highly detailed portrait of an elderly man with wrinkles, 
+wearing a traditional woolen hat, cinematic lighting, 8K, ultra-realistic, 
 photorealistic, depth of field, soft shadows,film grain."
 
 generator = torch.Generator(device=device).manual_seed(12)
@@ -111,7 +111,7 @@ output = pipe.parasolver_forward(
     num_inference_steps=1000,
     num_time_subintervals=1000,
     num_preconditioning_steps=5,
-    parallel=8,  # Number of parallel steps
+    parallel=8,  
     num_images_per_prompt=1,
     tolerance=0.55,
     output_type="pil",
@@ -125,6 +125,7 @@ image.save("generated_image.png")
 #### Multiple GPUs
 For multi-GPU usage, please run [`Expr_CMP_SD.py`](Expr_CMP_SD.py) in the repository with appropriate configuration.
 
+```
 ## ⚡ Performance Benchmarks
 
 ### Stable Diffusion v2 Acceleration
@@ -136,13 +137,13 @@ Todo
 ## 🎨 Visual Results
 Todo
 
-
+```
 ## 🛠 Advanced Usage
 
 ### Integration with Popular Frameworks  [Diffusers](https://huggingface.co/docs/diffusers/index)
 Todo
 
-
+```
 ## 📝 Citation
 If you use ParaSolver in your research, please cite our paper:
 ```bibtex
