@@ -100,7 +100,8 @@ pipe.enable_xformers_memory_efficient_attention()
 pipe.unet.eval()
 
 # Generate an image
-prompt = "A highly detailed portrait of an elderly man with wrinkles, wearing a traditional woolen hat, cinematic lighting, 8K, ultra-realistic, photorealistic, depth of field, soft shadows,film grain."
+prompt = "A highly detailed portrait of an elderly man with wrinkles, wearing a traditional woolen hat, cinematic lighting,\
+ 8K, ultra-realistic, photorealistic, depth of field, soft shadows,film grain."
 
 generator = torch.Generator(device=device).manual_seed(12)
 
