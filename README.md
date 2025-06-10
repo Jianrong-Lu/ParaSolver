@@ -67,7 +67,7 @@ pip install -r requirements.txt
 ### Basic Usage 
 
 #### Single GPU
-To use ParaSolver to accelerate DDIM on a single GPU, here's a minimal example:
+To use ParaSolver to accelerate DDPM on a single GPU, here's a minimal example:
 
 ```python
 import torch
