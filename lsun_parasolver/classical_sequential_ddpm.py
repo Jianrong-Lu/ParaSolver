@@ -1,0 +1,125 @@
+from typing import TYPE_CHECKING, List, Optional, Union
+
+import torch
+from diffusers.pipelines import DDPMPipeline
+from diffusers.pipelines.pipeline_utils import ImagePipelineOutput
+from diffusers.utils.torch_utils import randn_tensor
+
+if TYPE_CHECKING:
+    import torch.jit
+    import torch.jit._state
+
+
+class SequentialDDPMDiffusionPipeline(DDPMPipeline):
+    r"""
+    Pipeline for image generation.
+
+    This model inherits from [`DiffusionPipeline`]. Check the superclass documentation for the generic methods
+    implemented for all pipelines (downloading, saving, running on a particular device, etc.).
+
+    Parameters:
+        unet ([`UNet2DModel`]):
+            A `UNet2DModel` to denoise the encoded image latents.
+        scheduler ([`SchedulerMixin`]):
+            A scheduler to be used in combination with `unet` to denoise the encoded image. Can be one of
+            [`DDPMScheduler`], or [`DDIMScheduler`].
+    """
+
+    model_cpu_offload_seq = "unet"
+
+    def __init__(self, unet, scheduler):
+        super().__init__(unet, scheduler)
+
+        # overwriting parent class
+        scheduler = scheduler
+        self.register_modules(unet=unet, scheduler=scheduler)
+
+
+
+    @torch.no_grad()
+    def sequential_paradigms_forward(
+            self,
+            batch_size: int = 1,
+            generator: Optional[Union[torch.Generator, List[torch.Generator]]] = None,
+            eta: float = 0.0,
+            num_inference_steps: int = 1000,
+            output_type: Optional[str] = "pil",
+            return_dict: bool = True,
+    ):
+
+        print("Sequential ddpm pipeline!", flush=True)
+
+        device = self._execution_device
+        # Sample gaussian noise to begin loop
+        if isinstance(self.unet.config.sample_size, int):
+            image_shape = (
+                batch_size,
+                self.unet.config.in_channels,
+                self.unet.config.sample_size,
+                self.unet.config.sample_size,
+            )
+        else:
+            image_shape = (batch_size, self.unet.config.in_channels, *self.unet.config.sample_size)
+
+        if self.device.type == "mps":
+            # randn does not work reproducibly on mps
+            image = randn_tensor(image_shape, generator=generator)
+            image = image.to(device)
+        else:
+            image = randn_tensor(image_shape, generator=generator, device=device,dtype=self.unet.dtype)
+
+        # set step values
+        self.scheduler.set_timesteps(num_inference_steps)
+
+        stats_pass_count = 0
+        stats_flop_count = 0
+        start = torch.cuda.Event(enable_timing=True)
+        end = torch.cuda.Event(enable_timing=True)
+        start.record()
+
+
+        for t in self.progress_bar(self.scheduler.timesteps):
+            # 1. predict noise model_output
+            model_output = self.unet(image, t).sample
+
+            # 2. compute previous image: x_t -> x_t-1
+            image = self.scheduler.step(model_output, t, image, generator=generator).prev_sample
+            stats_pass_count += 1
+            print(image.size())
+            stats_flop_count +=  1 * image.size()[0]
+
+        print("pass count", stats_pass_count)
+        print("flop count", stats_flop_count)
+        end.record()
+        # Waits for everything to finish running
+        torch.cuda.synchronize()
+
+        print("sequential ddpm elapsed time:",start.elapsed_time(end))
+        stats = {
+            'pass_count': stats_pass_count,
+            'flops_count': stats_flop_count,
+            'time': start.elapsed_time(end),
+        }
+        print("total elapsed time:",stats['time'])
+        print("done", flush=True)
+
+        image = (image / 2 + 0.5).clamp(0, 1)
+        image = image.cpu().permute(0, 2, 3, 1).numpy()
+
+        def process_image(image):
+            if output_type == "pil":
+                image = self.numpy_to_pil(image)
+
+            # Offload last model to CPU
+            if hasattr(self, "final_offload_hook") and self.final_offload_hook is not None:
+                print("offload hook", flush=True)
+                self.final_offload_hook.offload()
+
+            return image
+
+        image = process_image(image)
+
+        if not return_dict:
+            return (image,)
+
+        return ImagePipelineOutput(images=image), stats

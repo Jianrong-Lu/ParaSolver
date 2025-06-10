@@ -22,7 +22,7 @@
 
 
 ## News
-- [2025-06-6] We are uploading the code. Partial codes are available now!
+- [2025-06-10] We are uploading the code. Partial codes are available now!
 - [2025-06-6] We are organizing the code.
 - [2025-04-22] The code is scheduled to be released between May 16 and June 20
 - [2025-01-23] Our paper has been accepted by ICLR 2025!
