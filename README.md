@@ -146,8 +146,6 @@ We welcome contributions!
 
 
 
-Here's the enhanced `Acknowledgement` section with icons and improved formatting:
-
 
 ## 🙏 Acknowledgement
 
