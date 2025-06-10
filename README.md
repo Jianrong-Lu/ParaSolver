@@ -71,41 +71,54 @@ To use ParaSolver to accelerate DDIM on a single GPU, here's a minimal example:
 
 ```python
 import torch
-from sd_parasolver.paraddim_scheduler import ParaDDIMScheduler
-from sd_parasolver.stablediffusion_parasolver_ddim_mp import ParaSolverDDIMStableDiffusionPipeline
+from sd_parasolver.stablediffusion_parasolver_ddpm_mp import ParaSolverDDPMStableDiffusionPipeline
+from sd_parasolver.paraddpm_scheduler import ParaDDPMScheduler
 
-# Configuration
-MODEL_ID = "stabilityai/stable-diffusion-2"
-PROMPT = "A highly detailed portrait of an elderly man with wrinkles, wearing a traditional woolen hat, cinematic lighting, 8K, ultra-realistic, photorealistic, depth of field, soft shadows, film grain"
-NUM_STEPS = 25
-SEED = 42
-DEVICE = f"cuda:{0}"
-# Initialize scheduler and pipeline
-scheduler = ParaDDIMScheduler.from_pretrained(MODEL_ID, subfolder="scheduler", 
-                                            timestep_spacing="trailing",
-                                            torch_dtype=torch.float16)
-pipe = ParaSolverDDIMStableDiffusionPipeline.from_pretrained(
-    MODEL_ID, 
+# Initialize the pipeline
+model_id = "stabilityai/stable-diffusion-2"
+torch_dtype = torch.float16
+device = "cuda:0"  
+
+# Create scheduler and pipeline
+scheduler = ParaDDPMScheduler.from_pretrained(
+    model_id, 
+    subfolder="scheduler", 
+    timestep_spacing="trailing",
+    torch_dtype=torch_dtype
+)
+scheduler._is_ode_scheduler = False
+
+pipe = ParaSolverDDPMStableDiffusionPipeline.from_pretrained(
+    model_id, 
     scheduler=scheduler, 
-    torch_dtype=torch.float16,
+    torch_dtype=torch_dtype,
     safety_checker=None
-).to(DEVICE)
+).to(device)
 
-# Generate image
-generator = torch.Generator(device=DEVICE).manual_seed(SEED)
-image = pipe.parasolver_forward(
-    PROMPT,
-    num_inference_steps=NUM_STEPS,
-    num_time_subintervals=NUM_STEPS,  # Typically same as num_inference_steps
-    num_preconditioning_steps=1,
-    parallel=5,  # Parallelism degree
-    tolerance=0.05,
+# Enable memory efficient attention and set to eval mode
+pipe.enable_xformers_memory_efficient_attention()
+pipe.unet.eval()
+
+# Generate an image
+prompt = "A highly detailed portrait of an elderly man with wrinkles, wearing a traditional woolen hat, cinematic lighting, 8K, ultra-realistic, photorealistic, depth of field, soft shadows, film grain"
+
+generator = torch.Generator(device=device).manual_seed(12)
+
+output = pipe.parasolver_forward(
+    prompt,
+    num_inference_steps=1000,
+    num_time_subintervals=1000,
+    num_preconditioning_steps=5,
+    parallel=8,  # Number of parallel steps
+    num_images_per_prompt=1,
+    tolerance=0.55,
+    output_type="pil",
     generator=generator
-).images[0]
+)
 
-# Save result
-image.save("output.png")
-```
+# Save the image
+image = output.images[0]
+image.save("generated_image.png")
 
 #### Multiple GPUs
 For multi-GPU usage, please run [`Expr_CMP_SD.py`](Expr_CMP_SD.py) in the repository with appropriate configuration.
@@ -120,10 +133,11 @@ Todo
 Todo
 ## 🎨 Visual Results
 Todo
+
+
 ## 🛠 Advanced Usage
 
-
-### Integration with Popular Frameworks
+### Integration with Popular Frameworks  [Diffusers](https://huggingface.co/docs/diffusers/index)
 Todo
 
 
