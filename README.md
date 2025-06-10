@@ -63,21 +63,51 @@ cd ParaSolver
 pip install -r requirements.txt
 ```
 
-### Basic Usage
+### Basic Usage 
+
+#### Single GPU
+To use ParaSolver to accelerate DDIM on a single GPU, here's a minimal example:
+
 ```python
-from parasolver import ParaSolver
+import torch
+from sd_parasolver.paraddim_scheduler import ParaDDIMScheduler
+from sd_parasolver.stablediffusion_parasolver_ddim_mp import ParaSolverDDIMStableDiffusionPipeline
 
-# Initialize with your favorite diffusion model
-solver = ParaSolver(
-    model=your_diffusion_model,
-    n_subintervals=40,  # Number of temporal partitions
-    precondition_steps=5,  # Warm-up steps
-    tol=0.05  # Convergence tolerance
-)
+# Configuration
+MODEL_ID = "stabilityai/stable-diffusion-2"
+PROMPT = "A highly detailed portrait of an elderly man with wrinkles, wearing a traditional woolen hat, cinematic lighting, 8K, ultra-realistic, photorealistic, depth of field, soft shadows, film grain"
+NUM_STEPS = 25
+SEED = 42
+DEVICE = f"cuda:{0}"
+# Initialize scheduler and pipeline
+scheduler = ParaDDIMScheduler.from_pretrained(MODEL_ID, subfolder="scheduler", 
+                                            timestep_spacing="trailing",
+                                            torch_dtype=torch.float16)
+pipe = ParaSolverDDIMStableDiffusionPipeline.from_pretrained(
+    MODEL_ID, 
+    scheduler=scheduler, 
+    torch_dtype=torch.float16,
+    safety_checker=None
+).to(DEVICE)
 
-# Generate samples in parallel
-samples = solver.sample(batch_size=8, steps=100)
+# Generate image
+generator = torch.Generator(device=DEVICE).manual_seed(SEED)
+image = pipe.parasolver_forward(
+    PROMPT,
+    num_inference_steps=NUM_STEPS,
+    num_time_subintervals=NUM_STEPS,  # Typically same as num_inference_steps
+    num_preconditioning_steps=1,
+    parallel=5,  # Parallelism degree
+    tolerance=0.05,
+    generator=generator
+).images[0]
+
+# Save result
+image.save("output.png")
 ```
+
+#### Multiple GPUs
+For multi-GPU usage, please run [`Expr_CMP_SD.py`](Expr_CMP_SD.py) in the repository with appropriate configuration.
 
 ## ⚡ Performance Benchmarks
 
@@ -95,36 +125,9 @@ samples = solver.sample(batch_size=8, steps=100)
 
 ## 🛠 Advanced Usage
 
-### Custom Configuration
-```python
-# Advanced configuration example
-solver = ParaSolver(
-    model=your_model,
-    n_subintervals=30,
-    precondition_steps=10,
-    tol=0.01,
-    window_size=8,  # For memory optimization
-    max_iters=50,   # Maximum parallel iterations
-    device='cuda',
-    verbose=True
-)
-```
 
 ### Integration with Popular Frameworks
-```python
-# With Diffusers
-from diffusers import StableDiffusionPipeline
-from parasolver import DiffusersWrapper
-
-pipe = StableDiffusionPipeline.from_pretrained("stabilityai/stable-diffusion-2")
-accelerated_pipe = DiffusersWrapper(pipe, parasolver_params={
-    'n_subintervals': 40,
-    'tol': 0.05
-})
-
-image = accelerated_pipe("A beautiful landscape").images[0]
-```
-
+Todo
 
 
 ## 📝 Citation
