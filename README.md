@@ -31,6 +31,8 @@ Official implementation of "ParaSolver: A Hierarchical Parallel Integral Solver 
 </video>
 Todo
 
+![Process Visualization](./assets/VisionCMP_final.gif)
+
 ## 🌟 Introduction
 ParaSolver revolutionizes diffusion model sampling by transforming the sequential inference process into a hierarchical parallel computation. Our method achieves up to **12.1× speedup** without compromising sample quality.
 
