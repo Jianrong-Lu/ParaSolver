@@ -1,0 +1,12 @@
+accelerate==1.1.1
+python==3.10.14
+torch==2.0.1
+torchaudio==2.0.2
+torchvision==0.15.2
+numpy==1.26.0
+transformers==4.40.0
+xformers==0.0.22
+tqdm==4.66.4
+decorator==5.2.1
+pandas==2.2.2
+diffusers==0.30.1
