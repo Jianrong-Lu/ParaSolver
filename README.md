@@ -26,7 +26,7 @@ Official implementation of "ParaSolver: A Hierarchical Parallel Integral Solver 
 
 ## 📺 Method Overview Video
 <video width="100%" controls>
-  <source src="parasolver.mp4" type="video/mp4">
+  <source src="./assets/parasolver.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 Todo
@@ -34,7 +34,7 @@ Todo
 ## 🌟 Introduction
 ParaSolver revolutionizes diffusion model sampling by transforming the sequential inference process into a hierarchical parallel computation. Our method achieves up to **12.1× speedup** without compromising sample quality.
 
-![Method Overview](method_poster.png)
+![Method Overview](./assets/method_image.jpg)
 
 ### Key Features:
 - **Training-free acceleration**: Works with existing diffusion models
@@ -112,6 +112,10 @@ image.save("generated_image.png")
 
 #### Multiple GPUs
 For multi-GPU usage, please run [`Expr_CMP_SD.py`](Expr_CMP_SD.py) in the repository with appropriate configuration.
+```python
+python Expr_CMP_SD.py
+```
+
 
 ## ⚡ Performance Benchmarks
 
