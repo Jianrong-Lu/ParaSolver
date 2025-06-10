@@ -42,6 +42,7 @@ Official implementation of "ParaSolver: A Hierarchical Parallel Integral Solver 
   <source src="parasolver.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
+Todo
 
 ## 🌟 Introduction
 ParaSolver revolutionizes diffusion model sampling by transforming the sequential inference process into a hierarchical parallel computation. Our method achieves up to **12.1× speedup** without compromising sample quality.
@@ -113,16 +114,12 @@ For multi-GPU usage, please run [`Expr_CMP_SD.py`](Expr_CMP_SD.py) in the reposi
 
 ### Stable Diffusion v2 Acceleration
 [Stable Diffusion Results](results/sd2_comparison.png)
-
+Todo
 ### LSUN Church Acceleration
 [LSUN Church Results](results/lsun_comparison.png)
-
+Todo
 ## 🎨 Visual Results
-| Method | Iteration 1 | Iteration 3 | Iteration 5 | Final Result |
-|--------|------------|------------|------------|--------------|
-| Sequential | [seq1](visuals/seq_1.png) | [seq3](visuals/seq_3.png) | [seq5](visuals/seq_5.png) | [seq_final](visuals/seq_final.png) |
-| ParaSolver | [para1](visuals/para_1.png) | [para3](visuals/para_3.png) | [para5](visuals/para_5.png) | [para_final](visuals/para_final.png) |
-
+Todo
 ## 🛠 Advanced Usage
 
 
