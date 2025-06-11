@@ -27,7 +27,7 @@ Official implementation of "ParaSolver: A Hierarchical Parallel Integral Solver 
 ## 🌟 **Method Overview Video**  
 
 <div align="center">  
- ✨ Watch the Video on your preferred platform* ✨  
+ ✨ Watch the Video on your preferred platform ✨  
 </div>
 
 ### 📺 **Video Platforms**
