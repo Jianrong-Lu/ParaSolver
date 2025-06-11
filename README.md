@@ -30,23 +30,19 @@ Official implementation of "ParaSolver: A Hierarchical Parallel Integral Solver 
  ✨ Watch the Video on your preferred platform ✨  
 </div>
 
-### 📺 **Video Platforms**
-- <img src="https://img.shields.io/badge/YouTube-FF0000?logo=youtube&logoColor=white" height="20" alt="YouTube"/> **[▶️ YouTube](your_youtube_link)**  
+### 📺 **Video Platform**
+- <img src="https://img.shields.io/badge/YouTube-FF0000?logo=youtube&logoColor=white" height="20" alt="YouTube"/> **[▶️ YouTube](https://youtu.be/u5qnG809AYs)**  
   *The world's largest video platform*
   
-- <img src="https://img.shields.io/badge/Bilibili-00A1D6?logo=bilibili&logoColor=white" height="20" alt="Bilibili"/> **[🎬 Bilibili](your_bilibili_link)**  
-  *China's leading video community*
 
 ### 📱 **Social Platforms**
-- <img src="https://img.shields.io/badge/WeChat-07C160?logo=wechat&logoColor=white" height="20" alt="WeChat"/> **[💬 WeChat QR](your_wechat_link)**  
+- <img src="https://img.shields.io/badge/WeChat-07C160?logo=wechat&logoColor=white" height="20" alt="WeChat"/> **[💬 WeChat](https://mp.weixin.qq.com/s/RJ6SZ3TQX-XkgGwyCl3Hag)**  
   *Scan to watch in WeChat ecosystem*
   
-- <img src="https://img.shields.io/badge/Xiaohongshu-FF2442?logo=xiaohongshu&logoColor=white" height="20" alt="Xiaohongshu"/> **[📕 Xiaohongshu](your_xhs_link)**  
+- <img src="https://img.shields.io/badge/Xiaohongshu-FF2442?logo=xiaohongshu&logoColor=white" height="20" alt="Xiaohongshu"/> **[📕 Xiaohongshu](https://www.xiaohongshu.com/discovery/item/68491766000000002301e488?app_platform=ios&app_version=8.86&share_from_user_hidden=true&xsec_source=app_share&type=video&xsec_token=CBir9tUqeTi_mQN5VGOBiSvilRPy9GTLOuDVEr4J0dnVI=&author_share=1&xhsshare=WeixinSession&shareRedId=ODlGRDZHOUw2NzUyOTgwNjg5OTc7NjpB&apptime=1749623383&share_id=a746a4be39b44c00ae66b68010da45d9)**  
   *Discover lifestyle content*
 
-### 📚 **Knowledge Platforms**  
-- <img src="https://img.shields.io/badge/Zhihu-0084FF?logo=zhihu&logoColor=white" height="20" alt="Zhihu"/> **[💡 Zhihu](your_zhihu_link)**  
-  *Chinese Q&A community with deep insights*
+
 
 ---
 
