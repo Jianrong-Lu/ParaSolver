@@ -12,7 +12,7 @@
   </p>
 </p>
 
-[![Paper](https://img.shields.io/badge/Paper-ICLR%202025-blue)](https://openreview.net/forum?id=your-paper-id)
+[![Paper Link](https://img.shields.io/badge/Paper-ICLR%202025-blue)](https://openreview.net/forum?id=2JihLwirxO)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 ## 📢 News
