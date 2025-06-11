@@ -1,6 +1,6 @@
 
 <p align="center">
-  <h1 align="center">ParaSolver: A Hierarchical Parallel Integral Solver for Diffusion Models</h1>
+  <h1 align="center">【ICLR 2025】 ParaSolver: A Hierarchical Parallel Integral Solver for Diffusion Models</h1>
 
   <p align="center">
     <br />
@@ -24,25 +24,35 @@
 
 Official implementation of "ParaSolver: A Hierarchical Parallel Integral Solver for Diffusion Models" (ICLR 2025)
 
-## 📺 **Method Overview Video**  
+## 🌟 **Method Overview Video**  
 
-<div align="center">
-
-✨ **Watch the video tutorial on your preferred platform** ✨  
-
-| Platform       | Badge | Link |
-|----------------|-------|------|
-| **YouTube**    | <img src="https://img.icons8.com/color/48/youtube-play.png" width="20" alt="YouTube"/> | [Watch on YouTube](your_youtube_link) |
-| **WeChat**     | <img src="https://img.icons8.com/fluency/48/wechat.png" width="20" alt="WeChat"/> | [Scan QR Code](your_wechat_link) |
-| **Xiaohongshu**| <img src="https://img.icons8.com/fluent/48/xiaohongshu.png" width="20" alt="Xiaohongshu"/> | [View on Xiaohongshu](your_xhs_link) |
-| **Bilibili**   | <img src="https://img.icons8.com/color/48/bilibili.png" width="20" alt="Bilibili"/> | [Watch on Bilibili](your_bilibili_link) |
-| **Zhihu**      | <img src="https://img.icons8.com/color/48/zhihu.png" width="20" alt="Zhihu"/> | [Read on Zhihu](your_zhihu_link) |
-
-📌 *Same content across all platforms — choose your favorite!*  
-
-
+<div align="center">  
+ ✨ Watch the Video on your preferred platform* ✨  
 </div>
 
+### 📺 **Video Platforms**
+- <img src="https://img.shields.io/badge/YouTube-FF0000?logo=youtube&logoColor=white" height="20" alt="YouTube"/> **[▶️ YouTube](your_youtube_link)**  
+  *The world's largest video platform*
+  
+- <img src="https://img.shields.io/badge/Bilibili-00A1D6?logo=bilibili&logoColor=white" height="20" alt="Bilibili"/> **[🎬 Bilibili](your_bilibili_link)**  
+  *China's leading video community*
+
+### 📱 **Social Platforms**
+- <img src="https://img.shields.io/badge/WeChat-07C160?logo=wechat&logoColor=white" height="20" alt="WeChat"/> **[💬 WeChat QR](your_wechat_link)**  
+  *Scan to watch in WeChat ecosystem*
+  
+- <img src="https://img.shields.io/badge/Xiaohongshu-FF2442?logo=xiaohongshu&logoColor=white" height="20" alt="Xiaohongshu"/> **[📕 Xiaohongshu](your_xhs_link)**  
+  *Discover lifestyle content*
+
+### 📚 **Knowledge Platforms**  
+- <img src="https://img.shields.io/badge/Zhihu-0084FF?logo=zhihu&logoColor=white" height="20" alt="Zhihu"/> **[💡 Zhihu](your_zhihu_link)**  
+  *Chinese Q&A community with deep insights*
+
+---
+
+<!-- <div align="center" style="margin-top:20px">
+📌 <em>Same premium content across all platforms</em> • 🔹 <em>Choose your favorite!</em>
+</div> -->
 
 
 ## 🌟 Introduction
