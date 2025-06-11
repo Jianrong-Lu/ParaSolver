@@ -142,15 +142,15 @@ python Expr_CMP_SD.py
 ## ⚡ Performance Benchmarks
 
 ### Stable Diffusion v2 Acceleration
-[Stable Diffusion Results](results/sd2_comparison.png)
-Todo
+![Stable Diffusion Results](./assets/SD_Table.jpg)
+<!-- Todo -->
 
 ### LSUN Church Acceleration
-[LSUN Church Results](results/lsun_comparison.png)
-Todo
+![LSUN Church Results](./assets/lsun_Table.jpg)
+<!-- Todo -->
 
-## 🎨 Visual Results
-Todo
+<!-- ## 🎨 Visual Results
+Todo -->
 
 ## 🛠 Advanced Usage
 
