@@ -24,17 +24,32 @@
 
 Official implementation of "ParaSolver: A Hierarchical Parallel Integral Solver for Diffusion Models" (ICLR 2025)
 
-## 📺 Method Overview Video
-<video width="100%" controls>
-  <source src="./assets/parasolver.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-Todo
+## 📺 **Method Overview Video**  
 
-![Process Visualization](./assets/VisionCMP_final.gif)
+<div align="center">
+
+✨ **Watch the video tutorial on your preferred platform** ✨  
+
+| Platform       | Badge | Link |
+|----------------|-------|------|
+| **YouTube**    | <img src="https://img.icons8.com/color/48/youtube-play.png" width="20" alt="YouTube"/> | [Watch on YouTube](your_youtube_link) |
+| **WeChat**     | <img src="https://img.icons8.com/fluency/48/wechat.png" width="20" alt="WeChat"/> | [Scan QR Code](your_wechat_link) |
+| **Xiaohongshu**| <img src="https://img.icons8.com/fluent/48/xiaohongshu.png" width="20" alt="Xiaohongshu"/> | [View on Xiaohongshu](your_xhs_link) |
+| **Bilibili**   | <img src="https://img.icons8.com/color/48/bilibili.png" width="20" alt="Bilibili"/> | [Watch on Bilibili](your_bilibili_link) |
+| **Zhihu**      | <img src="https://img.icons8.com/color/48/zhihu.png" width="20" alt="Zhihu"/> | [Read on Zhihu](your_zhihu_link) |
+
+📌 *Same content across all platforms — choose your favorite!*  
+
+
+</div>
+
+
 
 ## 🌟 Introduction
 ParaSolver revolutionizes diffusion model sampling by transforming the sequential inference process into a hierarchical parallel computation. Our method achieves up to **12.1× speedup** without compromising sample quality.
+
+![Process Visualization](./assets/VisionCMP_final.gif)
+
 
 ![Method Overview](./assets/method_image.jpg)
 
