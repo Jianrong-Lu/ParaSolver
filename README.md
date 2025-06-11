@@ -50,7 +50,6 @@ ParaSolver revolutionizes diffusion model sampling by transforming the sequentia
 
 ![Process Visualization](./assets/VisionCMP_final.gif)
 
-
 ![Method Overview](./assets/method_image.jpg)
 
 ### Key Features:
