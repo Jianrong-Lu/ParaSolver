@@ -12,8 +12,10 @@
   </p>
 </p>
 
-[![Paper Link](https://img.shields.io/badge/Paper-ICLR%202025-blue)](https://openreview.net/forum?id=2JihLwirxO)
+[![Paper](https://img.shields.io/badge/Paper-ICLR%202025-blue)](https://openreview.net/forum?id=2JihLwirxO)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+
+Official implementation of ["ParaSolver: A Hierarchical Parallel Integral Solver for Diffusion Models" (ICLR 2025)](https://openreview.net/forum?id=2JihLwirxO)
 
 ## 📢 News
 
@@ -22,7 +24,7 @@
 - **2025-04-22** ⌛ 📅 The code is scheduled to be released between May 16 and June 20  
 - **2025-01-23** 📜 🎓 Our paper has been accepted by ICLR 2025!
 
-Official implementation of "ParaSolver: A Hierarchical Parallel Integral Solver for Diffusion Models" (ICLR 2025)
+
 
 ## 🌟 **Method Overview Video**  
 
