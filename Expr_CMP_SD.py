@@ -311,19 +311,19 @@ if __name__ == "__main__":
 
     num_inference_steps = 25  
     # num_inference_steps = 50  
-    # num_inference_steps = 1000  
+    num_inference_steps = 1000  
 
 
     gpus = [i for i in range(torch.cuda.device_count())]
 
 
-    # method = "ParaSolver_DDPM" 
-    # method = "ParaDiGMS_DDPM"  
-    # method = "DDPM"
+    method = "ParaSolver_DDPM" 
+    method = "ParaDiGMS_DDPM"  
+    method = "DDPM"
 
-    method = "ParaSolver_DPMSolver"
-    method = "ParaDiGMS_DPMSolver" 
-    method = "DPMSolver"
+    # method = "ParaSolver_DPMSolver"
+    # method = "ParaDiGMS_DPMSolver" 
+    # method = "DPMSolver"
 
     # method = "ParaSolver_DDIM"
     # method = "ParaDiGMS_DDIM" 

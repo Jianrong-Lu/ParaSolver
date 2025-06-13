@@ -476,7 +476,6 @@ class ParaSolverDDPMStableDiffusionPipeline(StableDiffusionPipeline):
 
 
         #4. Initialize initial  points of all subintervals
-        warmup_dur = 0.0
         self.scheduler.timesteps = self.scheduler.coarse_timesteps
         # # self.scheduler.sigmas = self.scheduler.coarse_timesteps_sigmas
         self.scheduler.num_inference_steps = num_time_subintervals
@@ -644,7 +643,7 @@ class ParaSolverDDPMStableDiffusionPipeline(StableDiffusionPipeline):
             # compute the new begin and end idxs for the window
             new_i = i + min(1 + ind, parallel)
             new_end_i = min(new_i + parallel, num_time_subintervals)
-            self.save_process_image(num_time_subintervals,num_preconditioning_steps,output_type,tolerance,num_inference_steps,device,latents_time_evolution_buffer,k)
+
 
             if end_i < num_time_subintervals-1:
                 X_0 = self.predicted_original_sample[-1]
@@ -673,7 +672,7 @@ class ParaSolverDDPMStableDiffusionPipeline(StableDiffusionPipeline):
         # Waits for everything to finish running
         torch.cuda.synchronize()
 
-        print("warm up  elapsed time:", warmup_dur)
+
         print("initial elapsed time:", initial_para_dur)
         print("noise elapsed time:", noises_dur_time)
         print("updata elapsed time:", update_dur_time)
